@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ôn Thi Pro — Luyện thi từ Word</title>
+<style>
+:root{--bg:#f4f7fb;--panel:#fff;--ink:#17243b;--muted:#718096;--line:#e4eaf2;--primary:#3659d9;--primary2:#2444b8;--good:#14804a;--goodbg:#eaf8f0;--bad:#c43e4d;--badbg:#fff0f1;--shadow:0 12px 35px rgba(32,53,100,.08)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);line-height:1.55}
+button,input,select{font:inherit}button{cursor:pointer;border:0;border-radius:12px;padding:11px 16px;font-weight:700;transition:.18s}button:disabled{opacity:.45;cursor:not-allowed}
+.primary{background:var(--primary);color:#fff}.primary:hover{background:var(--primary2)}.secondary{background:#eef2ff;color:#2c49bd}.ghost{background:transparent;color:var(--muted);border:1px solid var(--line)}.danger{background:#fff0f1;color:var(--bad)}
+header{background:linear-gradient(120deg,#172c67,#3659d9);color:white;padding:22px max(22px,calc((100% - 1180px)/2));display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:12px}.logo{width:43px;height:43px;border-radius:14px;background:#ffffff20;display:grid;place-items:center;font-size:22px}.brand h1{font-size:19px;margin:0}.brand p{margin:2px 0 0;color:#d9e2ff;font-size:12px}.top-chip{font-size:12px;border:1px solid #ffffff55;border-radius:999px;padding:7px 11px;color:#eff3ff}
+main{max-width:1180px;margin:28px auto;padding:0 20px 48px}.hero{display:grid;grid-template-columns:1.3fr .7fr;gap:20px;margin-bottom:22px}.welcome,.upload-card,.panel,.quiz-card,.side-card,.result-card{background:var(--panel);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow)}
+.welcome{padding:28px;position:relative;overflow:hidden}.eyebrow{color:var(--primary);font-size:12px;font-weight:800;letter-spacing:.11em;text-transform:uppercase}.welcome h2{font-size:clamp(25px,3vw,36px);line-height:1.15;margin:10px 0}.welcome p{color:var(--muted);max-width:600px;margin:0 0 18px}.stats{display:flex;gap:10px;flex-wrap:wrap}.stat{padding:10px 13px;border-radius:12px;background:#f4f6ff;font-size:13px}.stat b{color:var(--primary);font-size:16px;margin-right:5px}
+.upload-card{padding:22px;display:flex;flex-direction:column;justify-content:center}.upload-card h3{margin:0 0 5px;font-size:17px}.upload-card p{font-size:13px;color:var(--muted);margin:0 0 15px}.drop{border:1.5px dashed #b7c4e5;border-radius:15px;padding:20px;text-align:center;background:#f8faff}.drop.drag{background:#edf1ff;border-color:var(--primary)}.drop .upload-icon{font-size:27px}.drop strong{display:block;margin:6px 0}.drop small{color:var(--muted)}.file-input{display:none}.file-status{font-size:12px;color:var(--good);margin-top:10px;overflow-wrap:anywhere}
+.layout{display:grid;grid-template-columns:260px minmax(0,1fr);gap:20px;align-items:start}.sidebar{display:flex;flex-direction:column;gap:16px}.panel{padding:18px}.panel h3{margin:0 0 12px;font-size:15px}.setting{display:block;margin:12px 0}.setting span{display:block;font-size:12px;font-weight:700;color:#59667b;margin-bottom:6px}.setting select,.setting input[type=number]{width:100%;padding:10px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}.checkline{display:flex;align-items:center;gap:9px;font-size:13px;color:#59667b;margin:12px 0}.checkline input{accent-color:var(--primary);width:16px;height:16px}.panel .primary{width:100%;margin-top:7px}.mini-note{font-size:12px;color:var(--muted);margin:10px 0 0}
+.content{min-width:0}.empty-state{padding:55px 24px;text-align:center;background:#fff;border:1px solid var(--line);border-radius:20px}.empty-state .big{font-size:45px}.empty-state h2{margin:8px 0}.empty-state p{color:var(--muted);max-width:520px;margin:0 auto 18px}
+.quiz-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}.quiz-meta{font-size:13px;color:var(--muted)}.quiz-meta strong{color:var(--ink)}.timer{font-weight:800;color:var(--primary);background:#eaf0ff;padding:8px 12px;border-radius:11px;font-variant-numeric:tabular-nums}.progress{height:7px;background:#e6ebf4;border-radius:99px;overflow:hidden;margin-bottom:18px}.progress div{height:100%;width:0;background:linear-gradient(90deg,#3659d9,#6e8aff);transition:width .25s}
+.quiz-card{padding:clamp(20px,3vw,32px)}.question-kicker{font-size:12px;color:var(--primary);font-weight:800;letter-spacing:.08em;text-transform:uppercase}.question-text{font-size:clamp(18px,2vw,23px);font-weight:750;line-height:1.4;margin:9px 0 22px}.answers{display:grid;gap:11px}.answer{width:100%;display:flex;align-items:flex-start;text-align:left;gap:12px;padding:15px;border:1px solid var(--line);border-radius:14px;background:#fff;color:var(--ink);font-weight:500;line-height:1.5}.answer:hover:not(:disabled){border-color:#9aaef9;background:#f8f9ff}.letter{flex:0 0 30px;height:30px;border-radius:9px;display:grid;place-items:center;background:#f0f3f9;color:#52617a;font-weight:800;font-size:13px}.answer.selected{border-color:var(--primary);background:#f1f4ff}.answer.selected .letter{background:var(--primary);color:white}.answer.correct{border-color:#72c99a;background:var(--goodbg)}.answer.correct .letter{background:var(--good);color:#fff}.answer.wrong{border-color:#ef9aa2;background:var(--badbg)}.answer.wrong .letter{background:var(--bad);color:#fff}
+.feedback{display:none;margin-top:18px;border-radius:13px;padding:15px}.feedback.show{display:block}.feedback.good{background:var(--goodbg);color:#17613b}.feedback.bad{background:var(--badbg);color:#8d2632}.feedback strong{display:block;margin-bottom:4px}.explanation{font-size:13px;margin-top:6px;line-height:1.6}
+.quiz-actions{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:24px}.right-actions{display:flex;gap:9px}.side-card{padding:18px;margin-bottom:16px}.side-card h3{font-size:14px;margin:0 0 12px}.question-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:7px}.qnum{padding:8px 0;border-radius:9px;background:#f1f4f9;color:#68758b;font-size:12px}.qnum.current{background:var(--primary);color:#fff}.qnum.answered{background:#dce5ff;color:#2947b7}.qnum.done-correct{background:#d9f3e4;color:#147441}.qnum.done-wrong{background:#ffe0e3;color:#ae2c3a}.legend{font-size:11px;color:var(--muted);display:flex;flex-wrap:wrap;gap:9px;margin-top:12px}.legend i{display:inline-block;width:8px;height:8px;border-radius:3px;margin-right:4px}
+.result-card{padding:30px;text-align:center}.score-circle{width:130px;height:130px;border-radius:50%;border:9px solid #e5ebff;display:grid;place-items:center;margin:18px auto;color:var(--primary)}.score-circle strong{font-size:34px;display:block;line-height:1}.score-circle span{font-size:12px;color:var(--muted)}.result-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:20px 0}.result-stat{padding:14px;background:#f7f9fc;border-radius:13px}.result-stat b{display:block;font-size:23px}.result-stat span{font-size:12px;color:var(--muted)}.review-list{text-align:left;margin-top:24px;display:grid;gap:10px}.review-item{border:1px solid var(--line);padding:14px;border-radius:12px}.review-item p{margin:5px 0;font-size:13px}.muted{color:var(--muted)}footer{text-align:center;color:#8792a5;font-size:12px;padding:22px}
+/* RESPONSIVE: Desktop, Tablet, Mobile */
+@media (min-width: 1200px){
+  main{max-width:1240px}
+  .layout{grid-template-columns:270px minmax(0,1fr);gap:24px}
+  .hero{grid-template-columns:minmax(0,1.25fr) minmax(340px,.75fr);gap:24px}
+}
+@media (max-width: 1024px){
+  header{padding:20px 24px}
+  main{margin:24px auto;padding:0 18px 40px}
+  .hero{grid-template-columns:1fr 1fr;gap:16px}
+  .welcome{padding:24px}
+  .layout{grid-template-columns:230px minmax(0,1fr);gap:16px}
+  .panel,.side-card{padding:15px}
+  .question-grid{grid-template-columns:repeat(6,minmax(0,1fr))}
+  .quiz-card{padding:24px}
+}
+@media (max-width: 768px){
+  header{padding:16px 20px}
+  .hero{grid-template-columns:1fr}
+  .layout{grid-template-columns:minmax(0,1fr)}
+  .sidebar{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+  .content{order:-1}
+  .question-grid{grid-template-columns:repeat(10,minmax(0,1fr))}
+  .welcome h2{font-size:clamp(25px,5vw,32px)}
+  .upload-card{padding:18px}
+  .quiz-card{padding:22px}
+  .result-card{padding:24px}
+}
+@media (max-width: 480px){
+  header{padding:13px 14px;gap:8px}
+  .brand{gap:9px}.logo{width:37px;height:37px;border-radius:12px;font-size:19px}
+  .brand h1{font-size:17px}.brand p{font-size:11px}.top-chip{display:none}
+  main{margin:14px auto;padding:0 10px 28px}
+  .hero{gap:12px;margin-bottom:14px}
+  .welcome{padding:19px;border-radius:16px}.welcome h2{font-size:25px}.welcome p{font-size:13px}
+  .stats{gap:7px}.stat{padding:8px 9px;font-size:11px}.stat b{font-size:14px}
+  .upload-card{padding:15px;border-radius:16px}.drop{padding:16px 10px}.drop strong{font-size:14px}.drop small{font-size:11px}
+  button{padding:10px 12px;border-radius:10px;font-size:13px}
+  .sidebar{display:flex;flex-direction:column;gap:12px}.panel{padding:15px;border-radius:16px}
+  .quiz-top{align-items:flex-start;gap:8px}.quiz-meta{font-size:11px;overflow-wrap:anywhere}.timer{font-size:12px;padding:7px 9px;white-space:nowrap}
+  .progress{margin-bottom:12px}
+  .quiz-card{padding:16px;border-radius:16px}.question-text{font-size:18px;margin:8px 0 17px;overflow-wrap:anywhere}
+  .answer{padding:11px 10px;gap:9px;font-size:13px;border-radius:11px}.letter{flex-basis:26px;height:26px;font-size:12px}
+  .feedback{padding:12px;font-size:13px}.explanation{font-size:12px}
+  .quiz-actions{align-items:stretch;flex-direction:column;gap:8px;margin-top:18px}
+  .quiz-actions>.ghost{width:100%}.right-actions{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px}.right-actions button{min-width:0;padding:10px 7px}
+  .side-card{padding:14px;border-radius:16px}.question-grid{grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}.qnum{padding:8px 0;font-size:11px}
+  .legend{gap:7px;font-size:10px}
+  .result-card{padding:18px;border-radius:16px}.score-circle{width:112px;height:112px;border-width:8px}.score-circle strong{font-size:29px}
+  .result-stats{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}.result-stat{padding:10px 5px}.result-stat b{font-size:19px}.result-stat span{font-size:10px}
+  .review-item{padding:11px;overflow-wrap:anywhere}
+  footer{padding:18px 10px;font-size:11px}
+}
+</style>
+</head>
+<body>
+<header><div class="brand"><div class="logo">✦</div><div><h1>Ôn Thi Pro</h1><p>Không gian luyện thi cá nhân</p></div></div><div class="top-chip">HTML · CSS · JavaScript</div></header>
+<main>
+<section class="hero">
+  <div class="welcome"><div class="eyebrow">Học thông minh hơn</div><h2>Biến tài liệu Word thành<br>đề thi tương tác.</h2><p>Tải lên bộ đề .docx, chọn đề muốn luyện và làm bài ngay trên trình duyệt. Theo dõi tiến độ, xem đáp án cùng giải thích và ôn lại câu sai.</p><div class="stats"><div class="stat"><b>01</b> Tải tài liệu</div><div class="stat"><b>02</b> Làm bài thi</div><div class="stat"><b>03</b> Xem kết quả</div></div></div>
+  <div class="upload-card"><h3>📄 Tải file Word của bạn</h3><p>Hỗ trợ .docx có câu hỏi trắc nghiệm, các lựa chọn A–D và dòng “Đáp án đúng”.</p><div class="drop" id="drop"><div class="upload-icon">⬆️</div><strong>Kéo thả file vào đây</strong><small>hoặc chọn file từ máy tính</small><div style="margin-top:13px"><button class="primary" id="chooseBtn">Chọn file .docx</button></div><input class="file-input" id="fileInput" type="file" accept=".docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document"></div><div class="file-status" id="fileStatus">Chưa có tài liệu được tải lên.</div></div>
+</section>
+<section class="layout">
+<aside class="sidebar">
+  <div class="panel"><h3>⚙️ Cài đặt bài thi</h3>
+    <label class="setting"><span>Chọn bộ đề</span><select id="examSelect" disabled><option>Hãy tải file trước</option></select></label>
+    <label class="setting"><span>Chế độ luyện tập</span><select id="modeSelect"><option value="practice">Luyện tập — xem đáp án ngay</option><option value="exam">Thi thử — chấm cuối giờ</option></select></label>
+    <label class="setting"><span>Thời gian (phút, chế độ thi thử)</span><input id="duration" type="number" min="1" max="300" value="60"></label>
+    <label class="checkline"><input id="shuffle" type="checkbox"> Xáo trộn thứ tự câu hỏi</label>
+    <label class="checkline"><input id="showExplanation" type="checkbox" checked> Hiện giải thích đáp án</label>
+    <button class="primary" id="startBtn" disabled>Bắt đầu làm bài →</button>
+    <p class="mini-note" id="parseNote">Tài liệu sẽ được xử lý ngay trong trình duyệt.</p>
+  </div>
+  <div class="panel"><h3>💡 Cách sử dụng</h3><p class="mini-note">• Mỗi câu chọn một đáp án A, B, C hoặc D.<br><br>• Dùng bảng số câu để chuyển nhanh.<br><br>• Ở chế độ thi thử, điểm được tính khi nộp bài.<br><br>• File Word không được gửi lên máy chủ.</p></div>
+</aside>
+<section class="content" id="content"><div class="empty-state"><div class="big">📝</div><h2>Sẵn sàng ôn thi?</h2><p>Tải file Word ở phía trên. Hệ thống sẽ tự nhận diện các bộ đề, câu hỏi, lựa chọn và đáp án để tạo bài thi tương tác.</p><button class="secondary" id="demoBtn">Xem ví dụ giao diện</button></div></section>
+</section>
+</main>
+<footer>Ôn Thi Pro · Dữ liệu được xử lý cục bộ trong trình duyệt của bạn.</footer>
+<script src="https://unpkg.com/mammoth@1.8.0/mammoth.browser.min.js"></script>
+<script>
+const $=id=>document.getElementById(id);
+let exams=[],currentQuestions=[],answers={},currentIndex=0,examMode='practice',showExplanation=true,finished=false,timerId=null,secondsLeft=0,startedAt=0;
+const letters=['A','B','C','D'];
+function normalize(s){return (s||'').replace(/\u00a0/g,' ').replace(/[ \t]+/g,' ').trim();}
+function parseDocument(text){
+  const lines=text.split(/\r?\n/).map(normalize).filter(Boolean);
+  const examMap=new Map(); let examNum=1,active=null;
+  const getExam=n=>{if(!examMap.has(n))examMap.set(n,{id:n,title:`Bộ đề ${n}`,questions:[]});return examMap.get(n)};
+  for(let i=0;i<lines.length;i++){
+    const line=lines[i];
+    const title=line.match(/BỘ\s*ĐỀ\s*ÔN\s*THI\s*SỐ\s*(\d+)/i);
+    if(title){examNum=Number(title[1]);active=getExam(examNum);continue;}
+    const qm=line.match(/^Câu\s*(\d+)\s*:\s*(.*)$/i);
+    if(!qm)continue;
+    if(!active)active=getExam(examNum);
+    const q={number:Number(qm[1]),text:qm[2],options:[],correct:null,explanation:''};
+    let j=i+1;
+    for(;j<lines.length;j++){
+      const l=lines[j];
+      if(/^Câu\s*\d+\s*:/i.test(l)||/^BỘ\s*ĐỀ\s*ÔN\s*THI\s*SỐ/i.test(l))break;
+      const opt=l.match(/^([A-D])\s*[.)]\s*(.*)$/i);
+      if(opt && q.options.length<4){q.options.push({letter:opt[1].toUpperCase(),text:opt[2]});continue;}
+      const ans=l.match(/Đáp\s*án\s*đúng\s*:\s*([A-D])/i);
+      if(ans){q.correct=ans[1].toUpperCase();const expl=l.match(/Giải\s*thích\s*:\s*(.*)$/i);if(expl)q.explanation=expl[1];continue;}
+      const expl=l.match(/Giải\s*thích\s*:\s*(.*)$/i);
+      if(expl){q.explanation=expl[1];continue;}
+      if(q.correct && !q.explanation && l.length>5)q.explanation=l;
+      else if(!q.options.length)q.text+=' '+l;
+      else if(q.options.length<4){const last=q.options[q.options.length-1];last.text+=' '+l;}
+      else if(q.explanation)q.explanation+=' '+l;
+    }
+    if(q.options.length===4 && q.correct){active.questions.push(q);}
+    i=j-1;
+  }
+  return [...examMap.values()].filter(e=>e.questions.length).sort((a,b)=>a.id-b.id);
+}
+function setStatus(msg,ok=true){$('fileStatus').textContent=msg;$('fileStatus').style.color=ok?'var(--good)':'var(--bad)';}
+async function loadFile(file){
+ if(!file)return;
+ if(!file.name.toLowerCase().endsWith('.docx')){setStatus('Vui lòng chọn file Word định dạng .docx.',false);return;}
+ if(!window.mammoth){setStatus('Không tải được bộ đọc Word. Hãy kiểm tra kết nối internet rồi tải lại trang.',false);return;}
+ setStatus('Đang đọc tài liệu…');
+ try{
+  const buffer=await file.arrayBuffer();
+  const result=await mammoth.extractRawText({arrayBuffer:buffer});
+  exams=parseDocument(result.value);
+  const select=$('examSelect');select.innerHTML='';
+  exams.forEach(e=>{const o=document.createElement('option');o.value=e.id;o.textContent=`${e.title} · ${e.questions.length} câu`;select.appendChild(o)});
+  select.disabled=!exams.length;$('startBtn').disabled=!exams.length;
+  if(!exams.length){setStatus('Chưa nhận diện được câu hỏi. Hãy kiểm tra định dạng tài liệu.',false);$('parseNote').textContent='Cần có dòng “Câu 1:”, 4 lựa chọn A–D và “Đáp án đúng: A/B/C/D”.';return;}
+  setStatus(`Đã tải ${file.name} · nhận diện ${exams.length} bộ đề, ${exams.reduce((n,e)=>n+e.questions.length,0)} câu.`);
+  $('parseNote').textContent='Đã đọc xong. Chọn bộ đề và nhấn Bắt đầu làm bài.';
+  $('content').innerHTML=`<div class="empty-state"><div class="big">🎉</div><h2>Đã sẵn sàng luyện thi!</h2><p>Nhận diện được <b>${exams.length} bộ đề</b> với tổng cộng <b>${exams.reduce((n,e)=>n+e.questions.length,0)} câu hỏi</b>. Chọn bộ đề ở phần cài đặt rồi bắt đầu làm bài.</p><button class="primary" onclick="startQuiz()">Bắt đầu làm bài →</button></div>`;
+ }catch(err){console.error(err);setStatus('Không đọc được file. Hãy thử lưu lại dưới định dạng .docx rồi tải lên.',false);}
+}
+$('chooseBtn').onclick=()=>$('fileInput').click();
+$('fileInput').addEventListener('change',e=>loadFile(e.target.files[0]));
+const drop=$('drop');
+drop.addEventListener('dragover',e=>{e.preventDefault();drop.classList.add('drag')});
+drop.addEventListener('dragleave',()=>drop.classList.remove('drag'));
+drop.addEventListener('drop',e=>{e.preventDefault();drop.classList.remove('drag');loadFile(e.dataTransfer.files[0])});
+$('startBtn').onclick=startQuiz;
+$('demoBtn').onclick=()=>{if(exams.length){startQuiz();return;}$('content').innerHTML=`<div class="quiz-card"><div class="question-kicker">Ví dụ giao diện</div><div class="question-text">Sau khi tải file Word, câu hỏi trắc nghiệm sẽ xuất hiện tại đây.</div><div class="answers">${['A. Lựa chọn thứ nhất','B. Lựa chọn thứ hai','C. Lựa chọn thứ ba','D. Lựa chọn thứ tư'].map((x,i)=>`<button class="answer" onclick="this.parentElement.querySelectorAll('.answer').forEach(b=>b.classList.remove('selected'));this.classList.add('selected')"><span class="letter">${letters[i]}</span><span>${x.slice(3)}</span></button>`).join('')}</div><p class="mini-note">Đây chỉ là bản xem trước. Tải file .docx để luyện bằng câu hỏi thật.</p></div>`};
+function startQuiz(){
+ if(!exams.length)return;
+ const e=exams.find(x=>String(x.id)===$('examSelect').value)||exams[0];
+ currentQuestions=e.questions.map(q=>({...q,options:q.options.map(o=>({...o}))}));
+ if($('shuffle').checked)currentQuestions.sort(()=>Math.random()-.5);
+ answers={};currentIndex=0;finished=false;examMode=$('modeSelect').value;showExplanation=$('showExplanation').checked;
+ if(timerId)clearInterval(timerId);
+ secondsLeft=Math.max(1,Number($('duration').value)||60)*60;startedAt=Date.now();
+ renderQuiz();
+ if(examMode==='exam'){timerId=setInterval(()=>{secondsLeft--;const el=$('timer');if(el)el.textContent=formatTime(secondsLeft);if(secondsLeft<=0){clearInterval(timerId);submitQuiz(true)}},1000);}
+}
+function formatTime(s){s=Math.max(0,s);return `${String(Math.floor(s/60)).padStart(2,'0')}:${String(s%60).padStart(2,'0')}`;}
+function renderQuiz(){
+ if(finished)return;
+ const q=currentQuestions[currentIndex],answered=answers[currentIndex],isAnswered=answered!==undefined,correct=answered===q.correct;
+ const lettersHtml=q.options.map((o,i)=>{let cls='answer';if(isAnswered&&o.letter===q.correct)cls+=' correct';else if(isAnswered&&o.letter===answered)cls+=' wrong';else if(o.letter===answered)cls+=' selected';return `<button class="${cls}" ${examMode==='practice'&&isAnswered?'disabled':''} onclick="chooseAnswer('${o.letter}')"><span class="letter">${o.letter}</span><span>${escapeHtml(o.text)}</span></button>`}).join('');
+ const fb=isAnswered&&examMode==='practice'?`<div class="feedback show ${correct?'good':'bad'}"><strong>${correct?'✓ Chính xác!':'✕ Chưa chính xác'}</strong><div>Đáp án đúng: <b>${q.correct}</b>${showExplanation&&q.explanation?`<div class="explanation">${escapeHtml(q.explanation)}</div>`:''}</div></div>`:'';
+ const exam=exams.find(x=>String(x.id)===$('examSelect').value)||exams[0];
+ $('content').innerHTML=`<div class="quiz-top"><div class="quiz-meta"><strong>${escapeHtml(exam.title)}</strong><br>Câu ${currentIndex+1}/${currentQuestions.length} · Đã trả lời ${Object.keys(answers).length}</div>${examMode==='exam'?`<div class="timer" id="timer">${formatTime(secondsLeft)}</div>`:`<div class="timer">Luyện tập</div>`}</div><div class="progress"><div style="width:${(currentIndex+1)/currentQuestions.length*100}%"></div></div><div class="quiz-card"><div class="question-kicker">Câu hỏi ${String(currentIndex+1).padStart(2,'0')}</div><div class="question-text">${escapeHtml(q.text)}</div><div class="answers">${lettersHtml}</div>${fb}<div class="quiz-actions"><button class="ghost" onclick="goTo(${currentIndex-1})" ${currentIndex===0?'disabled':''}>← Câu trước</button><div class="right-actions">${examMode==='exam'?`<button class="secondary" onclick="goTo(${currentIndex+1})" ${currentIndex===currentQuestions.length-1?'disabled':''}>Câu tiếp →</button><button class="primary" onclick="confirmSubmit()">Nộp bài</button>`:`<button class="primary" onclick="${currentIndex===currentQuestions.length-1?'showResult()':`goTo(${currentIndex+1})`}">${currentIndex===currentQuestions.length-1?'Xem kết quả':'Câu tiếp →'}</button>`}</div></div></div><div class="side-card" style="margin-top:16px"><h3>Đi đến câu hỏi</h3><div class="question-grid">${currentQuestions.map((_,i)=>`<button class="qnum ${i===currentIndex?'current':answers[i]?(examMode==='practice'?(answers[i]===currentQuestions[i].correct?'done-correct':'done-wrong'):'answered'):''}" onclick="goTo(${i})">${i+1}</button>`).join('')}</div><div class="legend"><span><i style="background:#3659d9"></i>Đang xem</span><span><i style="background:#dce5ff"></i>Đã trả lời</span><span><i style="background:#d9f3e4"></i>Đúng</span><span><i style="background:#ffe0e3"></i>Sai</span></div></div>`;
+}
+function escapeHtml(s){return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function chooseAnswer(letter){if(finished)return;if(examMode==='practice'&&answers[currentIndex]!==undefined)return;answers[currentIndex]=letter;renderQuiz();}
+function goTo(i){if(i<0||i>=currentQuestions.length||finished)return;currentIndex=i;renderQuiz();}
+function confirmSubmit(){const blank=currentQuestions.length-Object.keys(answers).length;if(blank&& !confirm(`Bạn còn ${blank} câu chưa trả lời. Vẫn nộp bài?`))return;submitQuiz(false);}
+function submitQuiz(auto=false){if(finished)return;finished=true;if(timerId)clearInterval(timerId);showResult(auto);}
+function showResult(auto=false){
+ if(timerId)clearInterval(timerId);finished=true;
+ const total=currentQuestions.length,answered=Object.keys(answers).length,correct=currentQuestions.filter((q,i)=>answers[i]===q.correct).length,wrong=answered-correct,blank=total-answered,percent=Math.round(correct/total*100),elapsed=Math.floor((Date.now()-startedAt)/1000);
+ const reviews=currentQuestions.map((q,i)=>({q,i,user:answers[i]})).filter(x=>x.user!==x.q.correct);
+ const title=percent>=80?'Xuất sắc!':percent>=60?'Làm tốt lắm!':'Tiếp tục cố gắng nhé!';
+ $('content').innerHTML=`<div class="result-card"><div class="eyebrow">Tổng kết bài làm</div><h2 style="margin:8px 0">${auto?'Hết giờ! ':''}${title}</h2><p class="muted">Bạn đã hoàn thành ${escapeHtml((exams.find(x=>String(x.id)===$('examSelect').value)||exams[0]).title)}.</p><div class="score-circle"><div><strong>${correct}/${total}</strong><span>câu đúng</span></div></div><div style="font-size:18px;font-weight:800;color:var(--primary)">${percent}% chính xác</div><div class="result-stats"><div class="result-stat"><b style="color:var(--good)">${correct}</b><span>Câu đúng</span></div><div class="result-stat"><b style="color:var(--bad)">${wrong}</b><span>Câu sai</span></div><div class="result-stat"><b>${blank}</b><span>Bỏ trống</span></div></div><p class="muted">Thời gian làm bài: ${formatTime(elapsed)} · Đã trả lời ${answered}/${total} câu</p><div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:20px"><button class="primary" onclick="startQuiz()">Làm lại đề này</button><button class="secondary" onclick="reviewAll()">Xem lại đáp án</button></div><div class="review-list" id="reviewList">${reviews.length?`<h3>Những câu cần ôn lại (${reviews.length})</h3>`:'<h3>🎉 Bạn đã trả lời đúng tất cả câu hỏi!</h3>'}${reviews.slice(0,12).map(({q,i,user})=>`<div class="review-item"><b>Câu ${i+1}. ${escapeHtml(q.text)}</b><p class="muted">Bạn chọn: ${user||'Chưa trả lời'} · Đáp án đúng: <b style="color:var(--good)">${q.correct}</b></p>${showExplanation&&q.explanation?`<p>${escapeHtml(q.explanation)}</p>`:''}</div>`).join('')}</div></div>`;
+}
+function reviewAll(){
+ finished=false;examMode='practice';showExplanation=true;currentIndex=0;
+ // Keep submitted answers visible as review, without allowing changes.
+ renderReviewQuestion();
+}
+function renderReviewQuestion(){
+ const q=currentQuestions[currentIndex],user=answers[currentIndex];
+ const exam=exams.find(x=>String(x.id)===$('examSelect').value)||exams[0];
+ $('content').innerHTML=`<div class="quiz-top"><div class="quiz-meta"><strong>Ôn lại đáp án · ${escapeHtml(exam.title)}</strong><br>Câu ${currentIndex+1}/${currentQuestions.length}</div><button class="ghost" onclick="showResult()">← Kết quả</button></div><div class="progress"><div style="width:${(currentIndex+1)/currentQuestions.length*100}%"></div></div><div class="quiz-card"><div class="question-kicker">Đáp án và giải thích</div><div class="question-text">${escapeHtml(q.text)}</div><div class="answers">${q.options.map(o=>`<div class="answer ${o.letter===q.correct?'correct':o.letter===user?'wrong':''}"><span class="letter">${o.letter}</span><span>${escapeHtml(o.text)}</span></div>`).join('')}</div><div class="feedback show ${user===q.correct?'good':'bad'}"><strong>${user===q.correct?'✓ Bạn đã trả lời đúng':'Đáp án đúng: '+q.correct}</strong>${q.explanation?`<div class="explanation">${escapeHtml(q.explanation)}</div>`:''}</div><div class="quiz-actions"><button class="ghost" onclick="reviewGo(${currentIndex-1})" ${currentIndex===0?'disabled':''}>← Câu trước</button><button class="primary" onclick="${currentIndex===currentQuestions.length-1?'showResult()':`reviewGo(${currentIndex+1})`}">${currentIndex===currentQuestions.length-1?'Về kết quả':'Câu tiếp →'}</button></div></div>`;
+}
+function reviewGo(i){if(i<0||i>=currentQuestions.length)return;currentIndex=i;renderReviewQuestion();}
+</script>
+</body>
+</html>
